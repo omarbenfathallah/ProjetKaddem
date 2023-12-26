@@ -1,4 +1,7 @@
 package com.example.gestionnertache.Repository;
 
-public interface ContratRepository {
+import com.example.gestionnertache.Entity.Contrat;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ContratRepository extends JpaRepository<Contrat,Integer> {
 }
