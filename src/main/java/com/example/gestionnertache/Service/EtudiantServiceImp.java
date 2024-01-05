@@ -1,8 +1,12 @@
 package com.example.gestionnertache.Service;
 
+import com.example.gestionnertache.Entity.Contrat;
 import com.example.gestionnertache.Entity.Departement;
+import com.example.gestionnertache.Entity.Equipe;
 import com.example.gestionnertache.Entity.Etudiant;
+import com.example.gestionnertache.Repository.ContratRepository;
 import com.example.gestionnertache.Repository.DepartementRepository;
+import com.example.gestionnertache.Repository.EquipeRepository;
 import com.example.gestionnertache.Repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +22,12 @@ public class EtudiantServiceImp implements EtudiantService{
 
     @Autowired
     DepartementRepository departementRepository ;
+
+    @Autowired
+    EquipeRepository equipeRepository;
+
+    @Autowired
+    ContratRepository contratRepository;
     @Override
     public List<Etudiant> retrieveAllEtudiants() {
         return etudiantRepository.findAll();
@@ -50,5 +60,21 @@ public class EtudiantServiceImp implements EtudiantService{
 
         etudiant.setDepartement(departement);
         etudiantRepository.save(etudiant);
+    }
+
+    @Override
+    public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
+
+        Equipe equipe = equipeRepository.findById(idEquipe).orElse(null);
+        Contrat contrat = contratRepository.findById(idContrat).orElse(null);
+
+        equipe.getEtudiants().add(e);
+        contrat.setEtudiant(e);
+//        e.getContrats().add(contrat);
+//        e.getEquipes().add(equipe);
+
+        etudiantRepository.save(e);
+
+        return null;
     }
 }
