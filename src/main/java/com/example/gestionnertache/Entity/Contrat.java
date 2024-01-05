@@ -20,6 +20,7 @@ public class Contrat {
 
     private Date dateDebutContrat;
     private Date dateFinContrat;
+    @Enumerated(EnumType.STRING)
     private  Specialite specialite;
     private boolean archive;
     private String montantContrat;

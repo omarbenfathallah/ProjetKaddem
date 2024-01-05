@@ -18,6 +18,7 @@ public class Etudiant {
     private int idEtudiant;
     private String nomE;
     private String prenomE;
+    @Enumerated(EnumType.STRING)
     private Option option;
 
     @ManyToOne

@@ -18,6 +18,7 @@ public class Equipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEquipe;
     private String nomEquipe;
+    @Enumerated(EnumType.STRING)
     private Niveau niveau;
 
     @ManyToMany(cascade = CascadeType.ALL)

@@ -10,4 +10,6 @@ public interface UniversiteService {
     Universite updateUniversite (Universite u);
     Universite retrieveUniversite (Integer idUniversite);
 
+    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement);
+
 }

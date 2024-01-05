@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("Etudiant")
+@RequestMapping("/Etudiant")
 public class EtudiantController {
     @Autowired
     EtudiantService etudiantService;
 
-    @PostMapping("/affecter-etudiant-departement/{idE]/{idD]")
+    @PostMapping("/affecter-etudiant-departement/{idE}/{idD}")
     public void  assignEtudiantToDepartement(@PathVariable("idE") Integer idE , @PathVariable("idD") Integer idD  ){
         etudiantService.assignEtudiantToDepartement(idE,idD);
     }
