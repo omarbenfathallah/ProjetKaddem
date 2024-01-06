@@ -77,4 +77,9 @@ public class EtudiantServiceImp implements EtudiantService{
 
         return null;
     }
+
+    @Override
+    public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
+        return etudiantRepository.getEtudiantByDepartement_IdDepart(idDepartement);
+    }
 }

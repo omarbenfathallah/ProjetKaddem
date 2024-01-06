@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/Etudiant")
@@ -29,6 +31,11 @@ public class EtudiantController {
     @PostMapping("/affecterContratEtudiant/{idC}/{nomE}/{prenomE}")
     public Contrat affectContratToEtudiant(@PathVariable("idC") Integer idC,@PathVariable("nomE") String nomE,@PathVariable("prenomE") String prenomE){
         return contratService.affectContratToEtudiant(idC,nomE,prenomE);
+    }
+
+    @GetMapping("/getEtudiantByIdDep/{idDep}")
+    List<Etudiant> getEtudiantsByDepartement (@PathVariable("idDep") Integer idDep){
+        return  etudiantService.getEtudiantsByDepartement(idDep);
     }
 
 

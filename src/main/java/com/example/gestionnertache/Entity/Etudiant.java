@@ -1,5 +1,6 @@
 package com.example.gestionnertache.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,12 +23,15 @@ public class Etudiant {
     private Option option;
 
     @ManyToOne
+    @JsonIgnore
     private Departement departement;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "etudiant")
+    @JsonIgnore
     private Set<Contrat>contrats;
 
     @ManyToMany(cascade = CascadeType.ALL,mappedBy = "etudiants")
+    @JsonIgnore
     private Set<Equipe>equipes;
 
 }
