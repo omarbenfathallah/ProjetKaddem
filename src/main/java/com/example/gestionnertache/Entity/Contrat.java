@@ -27,4 +27,11 @@ public class Contrat {
 
     @ManyToOne
     private Etudiant etudiant;
+
+    public Boolean getArchive() {
+        return archive;
+    }
+    public void setArchive(Boolean archive) {
+        this.archive = archive;
+    }
 }
